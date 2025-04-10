@@ -1,25 +1,41 @@
 import star from '../../assets/images/star.png';
-import sushi from '../../assets/images/sushi.png';
-import { Card, Container, Description, Title } from './styles';
+import { Button } from '../Button';
+import { Tag } from '../Tag';
+import { Card, Container, Description, Infos, Title } from './styles';
 
-export function Product() {
+type Props = {
+  image: string;
+  restaurantName: string;
+  starsNum: string;
+  description: string;
+  infos: string[];
+};
+
+export function Product({
+  image,
+  restaurantName,
+  starsNum,
+  description,
+  infos,
+}: Props) {
   return (
     <Card>
-      <img src={sushi} alt="Sushi" />
+      <img src={image} alt={restaurantName} />
+      <Infos>
+        {infos.map((info) => (
+          <Tag key={info}>{info}</Tag>
+        ))}
+      </Infos>
       <Container>
         <Title>
-          <h2>Nome do restaurante</h2>
+          <h2>{restaurantName}</h2>
           <span>
-            4.5<img src={star}></img>
+            {starsNum}
+            <img src={star}></img>
           </span>
         </Title>
-        <Description>
-          Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis
-          frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega
-          rápida, embalagens cuidadosas e qualidade garantida.Experimente o
-          Japão sem sair do lar com nosso delivery!
-        </Description>
-        <button>Saiba mais</button>
+        <Description>{description}</Description>
+        <Button bgcolor="red">Saiba mais</Button>
       </Container>
     </Card>
   );
