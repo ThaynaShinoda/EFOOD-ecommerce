@@ -1,7 +1,16 @@
+import { Link } from 'react-router-dom';
 import star from '../../assets/images/star.png';
 import { Button } from '../Button';
 import { Tag } from '../Tag';
 import { Card, Container, Description, Infos, Title } from './styles';
+
+function slugify(name: string) {
+  return name
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, '-');
+}
 
 type Props = {
   image: string;
@@ -11,7 +20,7 @@ type Props = {
   infos: string[];
 };
 
-export function Product({
+export function RestaurantCard({
   image,
   restaurantName,
   starsNum,
@@ -35,7 +44,9 @@ export function Product({
           </span>
         </Title>
         <Description>{description}</Description>
-        <Button bgcolor="red">Saiba mais</Button>
+        <Link to={`/restaurant/${slugify(restaurantName)}`}>
+          <Button bgcolor="red">Saiba mais</Button>
+        </Link>
       </Container>
     </Card>
   );

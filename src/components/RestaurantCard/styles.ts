@@ -5,6 +5,17 @@ export const Card = styled.div`
   background-color: ${colors.white};
   color: ${colors.soft_red};
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  img {
+    max-width: 472px;
+    max-height: 217px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 export const Container = styled.div`

@@ -1,18 +1,18 @@
 import { Restaurant } from '../../models/Restaurant';
-import { Product } from '../Product';
+import { RestaurantCard } from '../RestaurantCard';
 import { List } from './styles';
 
 export type Props = {
   restaurants: Restaurant[];
 };
 
-export function ProductsList({ restaurants }: Props) {
+export function RestaurantsList({ restaurants }: Props) {
   return (
     <div>
       <div className="wrapper">
         <List>
           {restaurants.map((restaurant) => (
-            <Product
+            <RestaurantCard
               key={restaurant.id}
               image={restaurant.image}
               restaurantName={restaurant.restaurantName}

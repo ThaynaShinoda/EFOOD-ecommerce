@@ -5,7 +5,7 @@ export const Image = styled.div`
   width: 100%;
   height: 22.5rem;
   text-align: center;
-  
+
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -20,8 +20,13 @@ export const Image = styled.div`
 `;
 
 export const DescriptionBanner = styled.h1`
-  width: 34rem;
+  max-width: 34rem;
+  width: 100%;
   color: ${colors.soft_red};
   font-weight: 900;
   font-size: 2.25rem;
+
+  @media(max-width: 768px) {
+    font-size: 2rem;
+  }
 `;

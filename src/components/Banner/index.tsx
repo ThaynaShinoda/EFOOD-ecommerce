@@ -1,4 +1,4 @@
-import banner from '../../assets/images/hero.png'
+import banner from '../../assets/images/bgImage.png'
 import logo from '../../assets/images/efood_logo.svg'
 import { DescriptionBanner, Image } from './styles'
 
