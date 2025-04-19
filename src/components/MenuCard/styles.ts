@@ -22,6 +22,11 @@ export const Card = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    margin: 0 auto;
+
+    @media(max-width: 768px) {
+      max-width: 100%;
+    }
   }
 `;
 export const InfosContainer = styled.div`

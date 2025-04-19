@@ -57,7 +57,8 @@ export const List = styled.div`
   margin-bottom: 7.5rem;
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    column-gap: 0;
   }
 `;
 
@@ -98,9 +99,15 @@ export const ModalContent = styled.div`
 
   > img {
     display: block;
+    max-width: 280px;
+    max-height: 280px;
     width: 280px;
     height: 280px;
     object-fit: cover;
+
+    @media(max-width: 768px) {
+      margin: 0 auto;
+    }
   }
 
   h3 {
@@ -118,6 +125,10 @@ export const ModalContent = styled.div`
     right: 0;
     margin: 1rem;
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `;
 
