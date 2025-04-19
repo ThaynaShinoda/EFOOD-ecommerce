@@ -5,11 +5,12 @@ type Props = {
   name: string;
   description: string;
   image: string;
+  onClick: () => void
 };
 
-export function MenuCard({ name, description, image }: Props) {
+export function MenuCard({ name, description, image ,onClick}: Props) {
   return (
-    <Card>
+    <Card onClick={onClick}>
       <InfosContainer>
         <img src={image} alt={name} />
         <ItemName>{name}</ItemName>
