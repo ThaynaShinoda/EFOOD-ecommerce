@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Restaurant } from '../../pages/Home';
 import { MenuCard } from '../MenuCard';
 import {
   BannerRestaurant,
@@ -12,6 +11,9 @@ import {
 } from './styles';
 import { getRestaurantTags } from '../RestaurantsList';
 import close from '../../assets/images/close_icon.png';
+import { useGetRestaurantPageQuery } from '../../services/api';
+import { useDispatch } from 'react-redux';
+import { add, open } from '../../redux/slices/cart';
 
 export const priceFormat = (price: number) => {
   return new Intl.NumberFormat('pt-BR', {
@@ -20,26 +22,23 @@ export const priceFormat = (price: number) => {
   }).format(price);
 };
 
+export interface Food {
+  id: number;
+  nome: string;
+  descricao: string;
+  foto: string;
+  porcao: string;
+  preco: number;
+  uniqueId: string
+}
+
 export function MenuList() {
+  const dispatch = useDispatch();
   const { id } = useParams();
-  const [restaurant, setRestaurant] = useState<Restaurant>();
+  const { data: restaurant } = useGetRestaurantPageQuery(id!);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  interface Food {
-    id: number;
-    nome: string;
-    descricao: string;
-    foto: string;
-    porcao: string;
-    preco: number;
-  }
-
   const [selectedFood, setSelectedFood] = useState<Food>();
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setRestaurant(res));
-  }, [id]);
 
   function capitalize(tag: string) {
     return tag.charAt(0).toUpperCase() + tag.slice(1);
@@ -49,18 +48,29 @@ export function MenuList() {
     setSelectedFood(food);
     setModalIsOpen(true);
   }
+
   function closeModal() {
     setModalIsOpen(false);
     setSelectedFood(undefined);
   }
 
+  function addToCart() {
+    if (selectedFood) {
+      dispatch(add(selectedFood));
+    }
+    dispatch(open());
+  }
+
+  if (!restaurant) {
+    return <h3>Carregando...</h3>;
+  }
   return (
     <>
       <div>
         <BannerRestaurant>
-          <img src={restaurant?.capa} alt={restaurant?.titulo} />
+          <img src={restaurant.capa} alt={restaurant.titulo} />
           <div className="wrapper">
-            <h2>{restaurant?.titulo}</h2>
+            <h2>{restaurant.titulo}</h2>
             <Infos>
               {restaurant &&
                 getRestaurantTags(restaurant).map((tag) => (
@@ -71,7 +81,7 @@ export function MenuList() {
         </BannerRestaurant>
         <div className="wrapper">
           <List>
-            {restaurant?.cardapio.map((item) => (
+            {restaurant.cardapio.map((item) => (
               <MenuCard
                 key={item.id}
                 image={item.foto}
@@ -97,7 +107,7 @@ export function MenuList() {
               <h3>{selectedFood.nome}</h3>
               <p>{selectedFood.descricao}</p>
               <p>Serve: {selectedFood.porcao}</p>
-              <CartButton>
+              <CartButton onClick={addToCart}>
                 Adicionar ao carrinho - {priceFormat(selectedFood.preco)}
               </CartButton>
             </div>
