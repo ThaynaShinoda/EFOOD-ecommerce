@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "../../styles/styles";
+import styled from 'styled-components';
+import { colors } from '../../styles/styles';
 
 export const TagContainer = styled.div`
   background-color: ${colors.soft_red};
@@ -9,4 +9,4 @@ export const TagContainer = styled.div`
   display: inline-block;
   margin-right: 0.5rem;
   padding: 0.375rem 0.25rem;
-`
+`;

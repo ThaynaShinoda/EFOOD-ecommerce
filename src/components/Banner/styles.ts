@@ -26,7 +26,7 @@ export const DescriptionBanner = styled.h1`
   font-weight: 900;
   font-size: 2.25rem;
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     font-size: 2rem;
   }
 `;

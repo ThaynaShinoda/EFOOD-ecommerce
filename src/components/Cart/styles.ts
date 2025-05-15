@@ -105,7 +105,6 @@ export const FinalPrice = styled.div`
   color: ${colors.peach_light};
 `;
 
-
 export const Form = styled.form`
   button {
     width: 100%;

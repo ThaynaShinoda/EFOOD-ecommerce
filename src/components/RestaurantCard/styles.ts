@@ -8,7 +8,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   img {
     max-width: 472px;
     max-height: 217px;

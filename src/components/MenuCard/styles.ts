@@ -24,7 +24,7 @@ export const Card = styled.div`
     object-fit: cover;
     margin: 0 auto;
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       max-width: 100%;
     }
   }

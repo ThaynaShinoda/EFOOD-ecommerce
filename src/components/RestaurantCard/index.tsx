@@ -22,7 +22,6 @@ export function RestaurantCard({
   infos,
   id,
 }: Props) {
-
   function capitalize(tag: string) {
     return tag.charAt(0).toUpperCase() + tag.slice(1);
   }
@@ -40,12 +39,14 @@ export function RestaurantCard({
           <h2>{restaurantName}</h2>
           <span>
             {starsNum}
-            <img src={star}></img>
+            <img src={star} alt="Estrela"></img>
           </span>
         </Title>
         <Description>{description}</Description>
         <Link to={`/restaurantes/${id}`}>
-          <Button bgcolor="red">Saiba mais</Button>
+          <Button type="button" bgcolor="red">
+            Saiba mais
+          </Button>
         </Link>
       </Container>
     </Card>

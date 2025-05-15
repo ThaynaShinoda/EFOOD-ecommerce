@@ -60,7 +60,7 @@ export function MenuList() {
       dispatch(add(selectedFood));
     }
     dispatch(open());
-    closeModal()
+    closeModal();
   }
 
   if (!restaurant) {
@@ -101,6 +101,7 @@ export function MenuList() {
             <img src={selectedFood.foto} alt="" />
             <div>
               <img
+                alt="Fechar"
                 className="closeButton"
                 onClick={closeModal}
                 src={close}

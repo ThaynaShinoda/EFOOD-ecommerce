@@ -105,7 +105,7 @@ export const ModalContent = styled.div`
     height: 280px;
     object-fit: cover;
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       margin: 0 auto;
     }
   }

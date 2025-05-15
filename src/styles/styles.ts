@@ -27,4 +27,3 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0 1rem;
   }
 `;
-

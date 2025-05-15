@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const List = styled.ul`
   display: grid;
@@ -8,7 +8,7 @@ export const List = styled.ul`
   margin-top: 5rem;
   margin-bottom: 7.5rem;
 
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
-`
+`;

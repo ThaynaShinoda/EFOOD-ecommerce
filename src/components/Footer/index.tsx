@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import logo from '../../assets/images/efood_logo.svg';
 import instagram from '../../assets/images/instagram.png';
 import facebook from '../../assets/images/facebook.png';
