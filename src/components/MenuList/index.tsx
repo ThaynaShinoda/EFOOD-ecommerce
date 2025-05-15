@@ -14,6 +14,7 @@ import close from '../../assets/images/close_icon.png';
 import { useGetRestaurantPageQuery } from '../../services/api';
 import { useDispatch } from 'react-redux';
 import { add, open } from '../../redux/slices/cart';
+import { Loader } from '../Loader';
 
 export const priceFormat = (price: number) => {
   return new Intl.NumberFormat('pt-BR', {
@@ -29,7 +30,7 @@ export interface Food {
   foto: string;
   porcao: string;
   preco: number;
-  uniqueId: string
+  uniqueId: string;
 }
 
 export function MenuList() {
@@ -59,10 +60,11 @@ export function MenuList() {
       dispatch(add(selectedFood));
     }
     dispatch(open());
+    closeModal()
   }
 
   if (!restaurant) {
-    return <h3>Carregando...</h3>;
+    return <Loader />;
   }
   return (
     <>

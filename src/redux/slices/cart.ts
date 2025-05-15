@@ -18,11 +18,13 @@ const cartSlice = createSlice({
     add: (state, action: PayloadAction<Food>) => {
       state.items.push({
         ...action.payload,
-        uniqueId: nanoid()
+        uniqueId: nanoid(),
       });
     },
     remove: (state, action: PayloadAction<string>) => {
-      state.items = state.items.filter((item) => item.uniqueId !== action.payload);
+      state.items = state.items.filter(
+        (item) => item.uniqueId !== action.payload
+      );
     },
     open: (state) => {
       state.isOpen = true;
@@ -30,8 +32,12 @@ const cartSlice = createSlice({
     close: (state) => {
       state.isOpen = false;
     },
+
+    clear: (state) => {
+      state.items = [];
+    },
   },
 });
 
-export const { add, remove, open, close } = cartSlice.actions;
+export const { add, remove, open, close, clear } = cartSlice.actions;
 export default cartSlice.reducer;

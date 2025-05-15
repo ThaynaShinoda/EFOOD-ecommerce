@@ -16,7 +16,7 @@ function App() {
         <ScrollToTop />
         <Router />
         <Footer />
-        <Cart/>
+        <Cart />
       </BrowserRouter>
     </Provider>
   );

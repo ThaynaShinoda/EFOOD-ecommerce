@@ -2,6 +2,7 @@ import { useGetRestaurantsQuery } from '../../services/api';
 import { Banner } from '../../components/Banner';
 import { RestaurantsList } from '../../components/RestaurantsList';
 import { Food } from '../../components/MenuList';
+import { Loader } from '../../components/Loader';
 
 export type Restaurant = {
   id: number;
@@ -25,5 +26,5 @@ export function Home() {
       </>
     );
   }
-  return <h3>Carregando...</h3>;
+  return <Loader />;
 }

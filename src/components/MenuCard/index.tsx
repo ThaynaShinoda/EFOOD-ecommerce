@@ -16,7 +16,7 @@ export function MenuCard({ name, description, image ,onClick}: Props) {
         <ItemName>{name}</ItemName>
         <Description>{description}</Description>
       </InfosContainer>
-      <Button> Adicionar ao carrinho</Button>
+      <Button type="button"> Adicionar ao carrinho</Button>
     </Card>
   );
 }
