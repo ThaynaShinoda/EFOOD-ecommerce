@@ -82,4 +82,4 @@ src/
 
 ---
 
-Desenvolvido para fins educacionais no
+Desenvolvido para fins educacionais na EBAC
