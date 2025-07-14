@@ -1,54 +1,85 @@
-# React + TypeScript + Vite
+# EFOOD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EFOOD é uma plataforma de e-commerce para restaurantes, desenvolvida com React, TypeScript, Redux Toolkit e Vite. O projeto simula um marketplace onde usuários podem visualizar restaurantes, explorar cardápios, adicionar itens ao carrinho e finalizar pedidos.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Listagem de restaurantes com destaque e filtros por tipo.
+- Visualização detalhada do restaurante e seu cardápio.
+- Adição de produtos ao carrinho com modal de confirmação.
+- Carrinho lateral com edição e remoção de itens.
+- Checkout com formulário validado para entrega e pagamento.
+- Integração com API fake para simulação de pedidos.
+- Layout responsivo e estilização com styled-components.
+- Feedback visual de carregamento e mensagens de sucesso/erro.
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Router DOM](https://reactrouter.com/)
+- [Formik](https://formik.org/) & [Yup](https://github.com/jquense/yup) (validação de formulários)
+- [Styled-components](https://styled-components.com/)
+- [Vite](https://vitejs.dev/)
+- [React Spinners](https://www.davidhu.io/react-spinners/)
+- [IMask](https://imask.js.org/) (máscara de inputs)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Estrutura do Projeto
+
+```
+src/
+  assets/           # Imagens e recursos estáticos
+  components/       # Componentes reutilizáveis (Banner, Cart, Footer, Header, etc)
+  pages/            # Páginas principais (Home, RestaurantPage)
+  redux/            # Store e slices do Redux
+  services/         # Serviços de API (RTK Query)
+  styles/           # Estilos globais e variáveis de cor
+  utils/            # Funções utilitárias
+  routes.tsx        # Definição das rotas
+  App.tsx           # Componente raiz
+  main.tsx          # Ponto de entrada da aplicação
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Como rodar o projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Clone o repositório:**
+   ```sh
+   git clone https://github.com/seu-usuario/efood.git
+   cd efood
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+2. **Instale as dependências:**
+   ```sh
+   npm install
+   ```
+
+3. **Inicie o servidor de desenvolvimento:**
+   ```sh
+   npm run dev
+   ```
+
+4. **Acesse:**  
+   Abra [http://localhost:5173](http://localhost:5173) no navegador.
+
+## Scripts disponíveis
+
+- `npm run dev` — Inicia o servidor de desenvolvimento.
+- `npm run build` — Gera a build de produção.
+- `npm run preview` — Visualiza a build de produção localmente.
+- `npm run lint` — Executa o ESLint.
+
+## Configuração de Lint e Formatação
+
+- ESLint com regras para React, TypeScript, import, acessibilidade e integração com Prettier.
+- Prettier para padronização de código.
+
+## Observações
+
+- O projeto utiliza uma [API fake](https://fake-api-tau.vercel.app/api/efood) para simulação de dados.
+- O layout é responsivo e otimizado para dispositivos móveis.
+- Os dados de cartão e endereço não são enviados para nenhum serviço real.
+
+---
+
+Desenvolvido para fins educacionais no
